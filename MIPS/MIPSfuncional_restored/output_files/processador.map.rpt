@@ -1,0 +1,1178 @@
+Analysis & Synthesis report for processador
+Mon Jun 22 18:26:49 2026
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0|altsyncram_7m71:auto_generated
+ 15. Source assignments for memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0|altsyncram_qsd1:auto_generated
+ 16. Parameter Settings for User Entity Instance: divisorClock:divisor_de_clock_inst
+ 17. Parameter Settings for User Entity Instance: memoriaROM:memoria_de_instrucao_inst
+ 18. Parameter Settings for User Entity Instance: memoriaRAM:memoria_de_dados_inst
+ 19. Parameter Settings for Inferred Entity Instance: memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0
+ 20. Parameter Settings for Inferred Entity Instance: memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0
+ 21. Parameter Settings for Inferred Entity Instance: ULA:ula_inst|lpm_mult:Mult0
+ 22. Parameter Settings for Inferred Entity Instance: ULA:ula_inst|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 25. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 26. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 27. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 28. altsyncram Parameter Settings by Entity Instance
+ 29. lpm_mult Parameter Settings by Entity Instance
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jun 22 18:26:49 2026       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; processador                                 ;
+; Top-level Entity Name              ; processador                                 ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 6,564                                       ;
+;     Total combinational functions  ; 5,603                                       ;
+;     Dedicated logic registers      ; 1,049                                       ;
+; Total registers                    ; 1049                                        ;
+; Total pins                         ; 82                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 16,384                                      ;
+; Embedded Multiplier 9-bit elements ; 6                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; processador        ; processador        ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                         ;
++-------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                                             ; Library ;
++-------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ULAcontrol.sv                                   ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULAcontrol.sv                                   ;         ;
+; ULA.sv                                          ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv                                          ;         ;
+; processador.sv                                  ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv                                  ;         ;
+; PC.sv                                           ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/PC.sv                                           ;         ;
+; mux2.sv                                         ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/mux2.sv                                         ;         ;
+; memoriaROM.sv                                   ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv                                   ;         ;
+; memoriaRAM.sv                                   ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaRAM.sv                                   ;         ;
+; extensor.sv                                     ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/extensor.sv                                     ;         ;
+; divisorClock.sv                                 ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/divisorClock.sv                                 ;         ;
+; debouncer.sv                                    ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/debouncer.sv                                    ;         ;
+; controle.sv                                     ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/controle.sv                                     ;         ;
+; bancoReg.sv                                     ; yes             ; User SystemVerilog HDL File                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/bancoReg.sv                                     ;         ;
+; codigo.mif                                      ; yes             ; Auto-Found Memory Initialization File                 ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/codigo.mif                                      ;         ;
+; altsyncram.tdf                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                                    ;         ;
+; stratix_ram_block.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                             ;         ;
+; lpm_mux.inc                                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                                       ;         ;
+; lpm_decode.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                                    ;         ;
+; aglobal191.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc                                                                                    ;         ;
+; a_rdenreg.inc                                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                                     ;         ;
+; altrom.inc                                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altrom.inc                                                                                        ;         ;
+; altram.inc                                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altram.inc                                                                                        ;         ;
+; altdpram.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altdpram.inc                                                                                      ;         ;
+; db/altsyncram_7m71.tdf                          ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/altsyncram_7m71.tdf                          ;         ;
+; db/processador.ram0_memoriaROM_72ae0008.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/processador.ram0_memoriaROM_72ae0008.hdl.mif ;         ;
+; db/altsyncram_qsd1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/altsyncram_qsd1.tdf                          ;         ;
+; lpm_mult.tdf                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mult.tdf                                                                                      ;         ;
+; lpm_add_sub.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                                                                   ;         ;
+; multcore.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/multcore.inc                                                                                      ;         ;
+; bypassff.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/bypassff.inc                                                                                      ;         ;
+; altshift.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altshift.inc                                                                                      ;         ;
+; db/mult_7dt.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/mult_7dt.tdf                                 ;         ;
+; lpm_divide.tdf                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                                                    ;         ;
+; abs_divider.inc                                 ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc                                                                                   ;         ;
+; sign_div_unsign.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                                               ;         ;
+; db/lpm_divide_hkm.tdf                           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_hkm.tdf                           ;         ;
+; db/sign_div_unsign_9nh.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/sign_div_unsign_9nh.tdf                      ;         ;
+; db/alt_u_div_6af.tdf                            ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_6af.tdf                            ;         ;
+; db/add_sub_7pc.tdf                              ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/add_sub_7pc.tdf                              ;         ;
+; db/add_sub_8pc.tdf                              ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/add_sub_8pc.tdf                              ;         ;
+; db/lpm_divide_3jm.tdf                           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_3jm.tdf                           ;         ;
+; db/sign_div_unsign_rlh.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/sign_div_unsign_rlh.tdf                      ;         ;
+; db/alt_u_div_a7f.tdf                            ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_a7f.tdf                            ;         ;
+; db/lpm_divide_3bm.tdf                           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_3bm.tdf                           ;         ;
+; db/sign_div_unsign_olh.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/sign_div_unsign_olh.tdf                      ;         ;
+; db/alt_u_div_47f.tdf                            ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf                            ;         ;
+; db/lpm_divide_0jm.tdf                           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_0jm.tdf                           ;         ;
++-------------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                ;
++---------------------------------------------+----------------------------------------------+
+; Resource                                    ; Usage                                        ;
++---------------------------------------------+----------------------------------------------+
+; Estimated Total logic elements              ; 6,564                                        ;
+;                                             ;                                              ;
+; Total combinational functions               ; 5603                                         ;
+; Logic element usage by number of LUT inputs ;                                              ;
+;     -- 4 input functions                    ; 3099                                         ;
+;     -- 3 input functions                    ; 1532                                         ;
+;     -- <=2 input functions                  ; 972                                          ;
+;                                             ;                                              ;
+; Logic elements by mode                      ;                                              ;
+;     -- normal mode                          ; 4232                                         ;
+;     -- arithmetic mode                      ; 1371                                         ;
+;                                             ;                                              ;
+; Total registers                             ; 1049                                         ;
+;     -- Dedicated logic registers            ; 1049                                         ;
+;     -- I/O registers                        ; 0                                            ;
+;                                             ;                                              ;
+; I/O pins                                    ; 82                                           ;
+; Total memory bits                           ; 16384                                        ;
+;                                             ;                                              ;
+; Embedded Multiplier 9-bit elements          ; 6                                            ;
+;                                             ;                                              ;
+; Maximum fan-out node                        ; divisorClock:divisor_de_clock_inst|LessThan1 ;
+; Maximum fan-out                             ; 1058                                         ;
+; Total fan-out                               ; 22683                                        ;
+; Average fan-out                             ; 3.29                                         ;
++---------------------------------------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |processador                              ; 5603 (495)          ; 1049 (0)                  ; 16384       ; 6            ; 0       ; 3         ; 82   ; 0            ; |processador                                                                                                                                    ; processador         ; work         ;
+;    |PC:pc_inst|                           ; 4 (4)               ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|PC:pc_inst                                                                                                                         ; PC                  ; work         ;
+;    |ULA:ula_inst|                         ; 1653 (535)          ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |processador|ULA:ula_inst                                                                                                                       ; ULA                 ; work         ;
+;       |lpm_divide:Div0|                   ; 1090 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_hkm:auto_generated|  ; 1090 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                         ; lpm_divide_hkm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1090 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 1090 (1089)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+;                   |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;       |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
+;          |mult_7dt:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |processador|ULA:ula_inst|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                ; mult_7dt            ; work         ;
+;    |ULAcontrol:ula_control_inst|          ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|ULAcontrol:ula_control_inst                                                                                                        ; ULAcontrol          ; work         ;
+;    |bancoReg:banco_reg_inst|              ; 1383 (1383)         ; 992 (992)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|bancoReg:banco_reg_inst                                                                                                            ; bancoReg            ; work         ;
+;    |controle:controle_inst|               ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|controle:controle_inst                                                                                                             ; controle            ; work         ;
+;    |debouncer:debouncer_inst|             ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|debouncer:debouncer_inst                                                                                                           ; debouncer           ; work         ;
+;    |divisorClock:divisor_de_clock_inst|   ; 38 (38)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|divisorClock:divisor_de_clock_inst                                                                                                 ; divisorClock        ; work         ;
+;    |lpm_divide:Div0|                      ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div0                                                                                                                    ; lpm_divide          ; work         ;
+;       |lpm_divide_3jm:auto_generated|     ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div0|lpm_divide_3jm:auto_generated                                                                                      ; lpm_divide_3jm      ; work         ;
+;          |sign_div_unsign_rlh:divider|    ; 553 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div0|lpm_divide_3jm:auto_generated|sign_div_unsign_rlh:divider                                                          ; sign_div_unsign_rlh ; work         ;
+;             |alt_u_div_a7f:divider|       ; 553 (553)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div0|lpm_divide_3jm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_a7f:divider                                    ; alt_u_div_a7f       ; work         ;
+;    |lpm_divide:Div1|                      ; 368 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div1                                                                                                                    ; lpm_divide          ; work         ;
+;       |lpm_divide_0jm:auto_generated|     ; 368 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div1|lpm_divide_0jm:auto_generated                                                                                      ; lpm_divide_0jm      ; work         ;
+;          |sign_div_unsign_olh:divider|    ; 368 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider                                                          ; sign_div_unsign_olh ; work         ;
+;             |alt_u_div_47f:divider|       ; 368 (368)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Div1|lpm_divide_0jm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider                                    ; alt_u_div_47f       ; work         ;
+;    |lpm_divide:Mod0|                      ; 315 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod0                                                                                                                    ; lpm_divide          ; work         ;
+;       |lpm_divide_3bm:auto_generated|     ; 315 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod0|lpm_divide_3bm:auto_generated                                                                                      ; lpm_divide_3bm      ; work         ;
+;          |sign_div_unsign_olh:divider|    ; 315 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider                                                          ; sign_div_unsign_olh ; work         ;
+;             |alt_u_div_47f:divider|       ; 315 (315)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider                                    ; alt_u_div_47f       ; work         ;
+;    |lpm_divide:Mod1|                      ; 359 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod1                                                                                                                    ; lpm_divide          ; work         ;
+;       |lpm_divide_3bm:auto_generated|     ; 359 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod1|lpm_divide_3bm:auto_generated                                                                                      ; lpm_divide_3bm      ; work         ;
+;          |sign_div_unsign_olh:divider|    ; 359 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider                                                          ; sign_div_unsign_olh ; work         ;
+;             |alt_u_div_47f:divider|       ; 359 (359)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider                                    ; alt_u_div_47f       ; work         ;
+;    |lpm_divide:Mod2|                      ; 368 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod2                                                                                                                    ; lpm_divide          ; work         ;
+;       |lpm_divide_3bm:auto_generated|     ; 368 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod2|lpm_divide_3bm:auto_generated                                                                                      ; lpm_divide_3bm      ; work         ;
+;          |sign_div_unsign_olh:divider|    ; 368 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod2|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider                                                          ; sign_div_unsign_olh ; work         ;
+;             |alt_u_div_47f:divider|       ; 368 (368)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|lpm_divide:Mod2|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider                                    ; alt_u_div_47f       ; work         ;
+;    |memoriaRAM:memoria_de_dados_inst|     ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|memoriaRAM:memoria_de_dados_inst                                                                                                   ; memoriaRAM          ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0                                                                              ; altsyncram          ; work         ;
+;          |altsyncram_qsd1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0|altsyncram_qsd1:auto_generated                                               ; altsyncram_qsd1     ; work         ;
+;    |memoriaROM:memoria_de_instrucao_inst| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|memoriaROM:memoria_de_instrucao_inst                                                                                               ; memoriaROM          ; work         ;
+;       |altsyncram:rom_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0                                                                          ; altsyncram          ; work         ;
+;          |altsyncram_7m71:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0|altsyncram_7m71:auto_generated                                           ; altsyncram_7m71     ; work         ;
+;    |mux2:mux_alusrc_inst|                 ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processador|mux2:mux_alusrc_inst                                                                                                               ; mux2                ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; Name                                                                                                ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                             ;
++-----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0|altsyncram_qsd1:auto_generated|ALTSYNCRAM     ; AUTO ; Simple Dual Port ; 256          ; 32           ; 256          ; 32           ; 8192 ; None                                            ;
+; memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0|altsyncram_7m71:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; 256          ; 32           ; --           ; --           ; 8192 ; db/processador.ram0_memoriaROM_72ae0008.hdl.mif ;
++-----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 6           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 3           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------------+----------------------------------------+
+; Register name                                ; Reason for Removal                     ;
++----------------------------------------------+----------------------------------------+
+; bancoReg:banco_reg_inst|registradores[0][0]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][1]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][2]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][3]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][4]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][5]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][6]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][7]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][8]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][9]  ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][10] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][11] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][12] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][13] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][14] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][15] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][16] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][17] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][18] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][19] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][20] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][21] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][22] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][23] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][24] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][25] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][26] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][27] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][28] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][29] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][30] ; Stuck at GND due to stuck port data_in ;
+; bancoReg:banco_reg_inst|registradores[0][31] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 32       ;                                        ;
++----------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1049  ;
+; Number of registers using Synchronous Clear  ; 23    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1024  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                          ;
++-----------------------------------------------+------------------------------------------------+------+
+; Register Name                                 ; Megafunction                                   ; Type ;
++-----------------------------------------------+------------------------------------------------+------+
+; memoriaROM:memoria_de_instrucao_inst|q[0..31] ; memoriaROM:memoria_de_instrucao_inst|rom_rtl_0 ; RAM  ;
+; memoriaRAM:memoria_de_dados_inst|q[0..31]     ; memoriaRAM:memoria_de_dados_inst|ram_rtl_0     ; RAM  ;
++-----------------------------------------------+------------------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[16][31] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[8][22]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[24][13] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[4][0]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[20][4]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[12][18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[28][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[2][8]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[18][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[10][13] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[26][18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[6][24]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[22][18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[14][28] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[30][27] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[1][22]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[17][1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[9][12]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[25][9]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[5][8]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[21][10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[13][15] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[29][19] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[3][14]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[19][25] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[11][23] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[27][20] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[7][10]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[23][10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[15][5]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processador|bancoReg:banco_reg_inst|registradores[31][16] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |processador|PC:pc_inst|atualPC[26]                        ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; Yes        ; |processador|PC:pc_inst|atualPC[17]                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |processador|digito2[0]                                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |processador|digito1[3]                                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |processador|Mux0                                          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |processador|Mux36                                         ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |processador|ULAcontrol:ula_control_inst|Mux1              ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |processador|bancoReg:banco_reg_inst|Mux49                 ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 640 LEs              ; 32 LEs                 ; No         ; |processador|bancoReg:banco_reg_inst|Mux10                 ;
+; 21:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; No         ; |processador|ULA:ula_inst|Mux27                            ;
+; 23:1               ; 8 bits    ; 120 LEs       ; 72 LEs               ; 48 LEs                 ; No         ; |processador|Mux20                                         ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 18 LEs               ; 10 LEs                 ; No         ; |processador|ULA:ula_inst|Mux28                            ;
+; 23:1               ; 8 bits    ; 120 LEs       ; 72 LEs               ; 48 LEs                 ; No         ; |processador|Mux21                                         ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; No         ; |processador|Mux11                                         ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; No         ; |processador|ULA:ula_inst|Mux30                            ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |processador|Mux8                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Source assignments for memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0|altsyncram_7m71:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                 ;
++---------------------------------+--------------------+------+---------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0|altsyncram_qsd1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisorClock:divisor_de_clock_inst ;
++----------------+---------+------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                 ;
++----------------+---------+------------------------------------------------------+
+; DIVISOR        ; 5000000 ; Signed Integer                                       ;
++----------------+---------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memoriaROM:memoria_de_instrucao_inst ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                                           ;
+; ADDR_WIDTH     ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memoriaRAM:memoria_de_dados_inst ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; DATA_WIDTH     ; 32    ; Signed Integer                                       ;
+; ADDR_WIDTH     ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0 ;
++------------------------------------+-------------------------------------------------+---------------------+
+; Parameter Name                     ; Value                                           ; Type                ;
++------------------------------------+-------------------------------------------------+---------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                               ; Untyped             ;
+; AUTO_CARRY_CHAINS                  ; ON                                              ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                             ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                ; ON                                              ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                             ; IGNORE_CASCADE      ;
+; WIDTH_BYTEENA                      ; 1                                               ; Untyped             ;
+; OPERATION_MODE                     ; ROM                                             ; Untyped             ;
+; WIDTH_A                            ; 32                                              ; Untyped             ;
+; WIDTHAD_A                          ; 8                                               ; Untyped             ;
+; NUMWORDS_A                         ; 256                                             ; Untyped             ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                    ; Untyped             ;
+; ADDRESS_ACLR_A                     ; NONE                                            ; Untyped             ;
+; OUTDATA_ACLR_A                     ; NONE                                            ; Untyped             ;
+; WRCONTROL_ACLR_A                   ; NONE                                            ; Untyped             ;
+; INDATA_ACLR_A                      ; NONE                                            ; Untyped             ;
+; BYTEENA_ACLR_A                     ; NONE                                            ; Untyped             ;
+; WIDTH_B                            ; 1                                               ; Untyped             ;
+; WIDTHAD_B                          ; 1                                               ; Untyped             ;
+; NUMWORDS_B                         ; 1                                               ; Untyped             ;
+; INDATA_REG_B                       ; CLOCK1                                          ; Untyped             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                          ; Untyped             ;
+; RDCONTROL_REG_B                    ; CLOCK1                                          ; Untyped             ;
+; ADDRESS_REG_B                      ; CLOCK1                                          ; Untyped             ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                    ; Untyped             ;
+; BYTEENA_REG_B                      ; CLOCK1                                          ; Untyped             ;
+; INDATA_ACLR_B                      ; NONE                                            ; Untyped             ;
+; WRCONTROL_ACLR_B                   ; NONE                                            ; Untyped             ;
+; ADDRESS_ACLR_B                     ; NONE                                            ; Untyped             ;
+; OUTDATA_ACLR_B                     ; NONE                                            ; Untyped             ;
+; RDCONTROL_ACLR_B                   ; NONE                                            ; Untyped             ;
+; BYTEENA_ACLR_B                     ; NONE                                            ; Untyped             ;
+; WIDTH_BYTEENA_A                    ; 1                                               ; Untyped             ;
+; WIDTH_BYTEENA_B                    ; 1                                               ; Untyped             ;
+; RAM_BLOCK_TYPE                     ; AUTO                                            ; Untyped             ;
+; BYTE_SIZE                          ; 8                                               ; Untyped             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                       ; Untyped             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                            ; Untyped             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                            ; Untyped             ;
+; INIT_FILE                          ; db/processador.ram0_memoriaROM_72ae0008.hdl.mif ; Untyped             ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                          ; Untyped             ;
+; MAXIMUM_DEPTH                      ; 0                                               ; Untyped             ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                          ; Untyped             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                          ; Untyped             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                          ; Untyped             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                          ; Untyped             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                 ; Untyped             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                 ; Untyped             ;
+; ENABLE_ECC                         ; FALSE                                           ; Untyped             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                           ; Untyped             ;
+; WIDTH_ECCSTATUS                    ; 3                                               ; Untyped             ;
+; DEVICE_FAMILY                      ; Cyclone IV E                                    ; Untyped             ;
+; CBXI_PARAMETER                     ; altsyncram_7m71                                 ; Untyped             ;
++------------------------------------+-------------------------------------------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0 ;
++------------------------------------+----------------------+--------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                       ;
++------------------------------------+----------------------+--------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                    ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                             ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                    ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                    ;
+; WIDTH_A                            ; 32                   ; Untyped                                    ;
+; WIDTHAD_A                          ; 8                    ; Untyped                                    ;
+; NUMWORDS_A                         ; 256                  ; Untyped                                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                    ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                    ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                    ;
+; WIDTH_B                            ; 32                   ; Untyped                                    ;
+; WIDTHAD_B                          ; 8                    ; Untyped                                    ;
+; NUMWORDS_B                         ; 256                  ; Untyped                                    ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                    ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                    ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                    ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                    ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                    ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                    ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                    ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                    ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                    ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                    ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                    ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                    ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                    ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                    ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                    ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                    ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                    ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                    ;
+; CBXI_PARAMETER                     ; altsyncram_qsd1      ; Untyped                                    ;
++------------------------------------+----------------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ULA:ula_inst|lpm_mult:Mult0        ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ULA:ula_inst|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                             ;
+; LPM_WIDTHD             ; 32             ; Untyped                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 7              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_3jm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_3bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_0jm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_3bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_3bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                      ;
++-------------------------------------------+-----------------------------------------------------------+
+; Name                                      ; Value                                                     ;
++-------------------------------------------+-----------------------------------------------------------+
+; Number of entity instances                ; 2                                                         ;
+; Entity Instance                           ; memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                       ;
+;     -- WIDTH_A                            ; 32                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 1                                                         ;
+;     -- NUMWORDS_B                         ; 1                                                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
+; Entity Instance                           ; memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0     ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                 ;
+;     -- WIDTH_A                            ; 32                                                        ;
+;     -- NUMWORDS_A                         ; 256                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                              ;
+;     -- WIDTH_B                            ; 32                                                        ;
+;     -- NUMWORDS_B                         ; 256                                                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                    ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                              ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                      ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                 ;
++-------------------------------------------+-----------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                      ;
++---------------------------------------+-----------------------------+
+; Name                                  ; Value                       ;
++---------------------------------------+-----------------------------+
+; Number of entity instances            ; 1                           ;
+; Entity Instance                       ; ULA:ula_inst|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                          ;
+;     -- LPM_WIDTHB                     ; 32                          ;
+;     -- LPM_WIDTHP                     ; 64                          ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                    ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                          ;
+;     -- USE_EAB                        ; OFF                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                          ;
++---------------------------------------+-----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 82                          ;
+; cycloneiii_ff         ; 1049                        ;
+;     ENA               ; 992                         ;
+;     ENA CLR           ; 32                          ;
+;     SCLR              ; 23                          ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 5609                        ;
+;     arith             ; 1371                        ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 70                          ;
+;         3 data inputs ; 1299                        ;
+;     normal            ; 4238                        ;
+;         0 data inputs ; 164                         ;
+;         1 data inputs ; 57                          ;
+;         2 data inputs ; 685                         ;
+;         3 data inputs ; 233                         ;
+;         4 data inputs ; 3099                        ;
+; cycloneiii_mac_mult   ; 3                           ;
+; cycloneiii_mac_out    ; 3                           ;
+; cycloneiii_ram_block  ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 135.50                      ;
+; Average LUT depth     ; 90.74                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:07     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Mon Jun 22 18:26:35 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AAV3 -c processador
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ulacontrol.sv
+    Info (12023): Found entity 1: ULAcontrol File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULAcontrol.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ula.sv
+    Info (12023): Found entity 1: ULA File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file processador.sv
+    Info (12023): Found entity 1: processador File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pc.sv
+    Info (12023): Found entity 1: PC File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/PC.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux3.sv
+    Info (12023): Found entity 1: mux3 File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/mux3.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
+    Info (12023): Found entity 1: mux2 File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/mux2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memoriarom.sv
+    Info (12023): Found entity 1: memoriaROM File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file memoriaram.sv
+    Info (12023): Found entity 1: memoriaRAM File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaRAM.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file extensor.sv
+    Info (12023): Found entity 1: extensor File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/extensor.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file divisorclock.sv
+    Info (12023): Found entity 1: divisorClock File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/divisorClock.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file debouncer.sv
+    Info (12023): Found entity 1: debouncer File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/debouncer.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controle.sv
+    Info (12023): Found entity 1: controle File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/controle.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bancoreg.sv
+    Info (12023): Found entity 1: bancoReg File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/bancoReg.sv Line: 1
+Info (12127): Elaborating entity "processador" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at processador.sv(98): truncated value with size 32 to match size of target (4) File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+Warning (10230): Verilog HDL assignment warning at processador.sv(99): truncated value with size 32 to match size of target (4) File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 99
+Warning (10230): Verilog HDL assignment warning at processador.sv(100): truncated value with size 32 to match size of target (4) File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 100
+Info (12128): Elaborating entity "divisorClock" for hierarchy "divisorClock:divisor_de_clock_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 64
+Warning (10230): Verilog HDL assignment warning at divisorClock.sv(13): truncated value with size 32 to match size of target (23) File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/divisorClock.sv Line: 13
+Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:debouncer_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 70
+Info (12128): Elaborating entity "controle" for hierarchy "controle:controle_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 124
+Info (12128): Elaborating entity "ULAcontrol" for hierarchy "ULAcontrol:ula_control_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 125
+Info (12128): Elaborating entity "PC" for hierarchy "PC:pc_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 127
+Info (12128): Elaborating entity "memoriaROM" for hierarchy "memoriaROM:memoria_de_instrucao_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 133
+Warning (10850): Verilog HDL warning at memoriaROM.sv(13): number of words (27) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv Line: 13
+Warning (10030): Net "rom.data_a" at memoriaROM.sv(10) has no driver or initial value, using a default initial value '0' File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv Line: 10
+Warning (10030): Net "rom.waddr_a" at memoriaROM.sv(10) has no driver or initial value, using a default initial value '0' File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv Line: 10
+Warning (10030): Net "rom.we_a" at memoriaROM.sv(10) has no driver or initial value, using a default initial value '0' File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv Line: 10
+Info (12128): Elaborating entity "bancoReg" for hierarchy "bancoReg:banco_reg_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 136
+Info (12128): Elaborating entity "extensor" for hierarchy "extensor:extensor_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 137
+Info (12128): Elaborating entity "ULA" for hierarchy "ULA:ula_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 138
+Info (12128): Elaborating entity "memoriaRAM" for hierarchy "memoriaRAM:memoria_de_dados_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 149
+Info (12128): Elaborating entity "mux2" for hierarchy "mux2:mux_alusrc_inst" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 161
+Warning (276027): Inferred dual-clock RAM node "memoriaRAM:memoria_de_dados_inst|ram_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "memoriaROM:memoria_de_instrucao_inst|rom_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/processador.ram0_memoriaROM_72ae0008.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "memoriaRAM:memoria_de_dados_inst|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK1
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ULA:ula_inst|Mult0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 19
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ULA:ula_inst|Div0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 99
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 99
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 100
+Info (12130): Elaborated megafunction instantiation "memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0"
+Info (12133): Instantiated megafunction "memoriaROM:memoria_de_instrucao_inst|altsyncram:rom_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/processador.ram0_memoriaROM_72ae0008.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_7m71.tdf
+    Info (12023): Found entity 1: altsyncram_7m71 File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/altsyncram_7m71.tdf Line: 28
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/processador.ram0_memoriaROM_72ae0008.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/processador.ram0_memoriaROM_72ae0008.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12130): Elaborated megafunction instantiation "memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "memoriaRAM:memoria_de_dados_inst|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qsd1.tdf
+    Info (12023): Found entity 1: altsyncram_qsd1 File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/altsyncram_qsd1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "ULA:ula_inst|lpm_mult:Mult0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 19
+Info (12133): Instantiated megafunction "ULA:ula_inst|lpm_mult:Mult0" with the following parameter: File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 19
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/mult_7dt.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "ULA:ula_inst|lpm_divide:Div0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 20
+Info (12133): Instantiated megafunction "ULA:ula_inst|lpm_divide:Div0" with the following parameter: File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv Line: 20
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
+    Info (12023): Found entity 1: lpm_divide_hkm File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_hkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/sign_div_unsign_9nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_6af.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3jm.tdf
+    Info (12023): Found entity 1: lpm_divide_3jm File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_3jm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/sign_div_unsign_rlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a7f.tdf
+    Info (12023): Found entity 1: alt_u_div_a7f File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_a7f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 98
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3bm.tdf
+    Info (12023): Found entity 1: lpm_divide_3bm File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_3bm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/sign_div_unsign_olh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_47f.tdf
+    Info (12023): Found entity 1: alt_u_div_47f File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 99
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 99
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0jm.tdf
+    Info (12023): Found entity 1: lpm_divide_0jm File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/lpm_divide_0jm.tdf Line: 25
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "ULA:ula_inst|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/mult_7dt.tdf Line: 67
+        Warning (14320): Synthesized away node "ULA:ula_inst|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/mult_7dt.tdf Line: 91
+Info (13014): Ignored 84 buffer(s)
+    Info (13019): Ignored 84 SOFT buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "display3[1]" is stuck at VCC File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 11
+    Warning (13410): Pin "display3[2]" is stuck at VCC File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv Line: 11
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 182
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 37
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 47
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_13_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 52
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_14_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 57
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_15_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_16_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 67
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_17_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 72
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_18_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 77
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_19_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 82
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_20_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 92
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_21_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 97
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_22_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 102
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_23_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 107
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_24_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 112
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_25_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 117
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_26_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 122
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_27_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 127
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_28_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 132
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_29_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 137
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_30_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 147
+    Info (17048): Logic cell "lpm_divide:Mod0|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_31_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 152
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_6_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 167
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_7_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 172
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_8_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 177
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_9_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 182
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_10_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 37
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_11_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_12_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 47
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_13_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 52
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_14_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 57
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_15_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_16_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 67
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_17_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 72
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_18_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 77
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_19_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 82
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_20_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 92
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_21_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 97
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_22_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 102
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_23_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 107
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_24_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 112
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_25_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 117
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_26_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 122
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_27_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 127
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_28_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 132
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_29_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 137
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_30_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 147
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_3bm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_47f:divider|add_sub_31_result_int[0]~10" File: C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/db/alt_u_div_47f.tdf Line: 152
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 6748 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 63 output pins
+    Info (21061): Implemented 6596 logic cells
+    Info (21064): Implemented 64 RAM segments
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4888 megabytes
+    Info: Processing ended: Mon Jun 22 18:26:49 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:18
+
+

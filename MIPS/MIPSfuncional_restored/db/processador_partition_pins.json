@@ -1,0 +1,329 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "saida_binario[0]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[1]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[2]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[3]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[4]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[5]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[6]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[7]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[8]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[9]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[10]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[11]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[12]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[13]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[14]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[15]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[16]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[17]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[18]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[19]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[20]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[21]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[22]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[23]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[24]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[25]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[26]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[27]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[28]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[29]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[30]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_binario[31]",
+					"strict" : false
+				},
+				{
+					"name" : "led_zero",
+					"strict" : false
+				},
+				{
+					"name" : "led_negativo",
+					"strict" : false
+				},
+				{
+					"name" : "display3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "io_stall_flag",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "switches[0]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[1]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[2]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[3]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[4]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[5]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[6]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[7]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[8]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[9]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[10]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[11]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[12]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[13]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[14]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[15]",
+					"strict" : false
+				},
+				{
+					"name" : "botaoEnter_n",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

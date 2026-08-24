@@ -1,0 +1,30 @@
+Quartus Prime Archive log --	C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/MIPSfuncional.qarlog
+
+Archive:	C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/MIPSfuncional.qar
+Date:		Mon Jun 22 18:33:07 2026
+Quartus Prime		19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/AAV3.qpf
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/PC.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULA.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/ULAcontrol.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/assignment_defaults.qdf
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/bancoReg.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/codigo.mif
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/controle.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/debouncer.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/divisorClock.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/extensor.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaRAM.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/memoriaROM.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/mux2.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/mux3.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.qsf
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sdc
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador.sv
+C:/Users/breno/OneDrive/Documents/UNIFESP/Materias/LAB COMPILADORES/MIPSfuncional/MIPSfuncional_restored/processador_assignment_defaults.qdf
+	======= Total: 19 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

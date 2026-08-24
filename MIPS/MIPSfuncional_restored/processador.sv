@@ -1,0 +1,179 @@
+module processador (
+    input logic clock,
+    input logic reset_n,
+    input logic botaoEnter_n,
+    input logic [15:0] switches,
+
+    output logic [31:0] saida_binario,
+    output logic led_zero,    
+    output logic led_negativo,
+
+    output logic [6:0] display3,
+    output logic [6:0] display2,
+    output logic [6:0] display1,
+    output logic [6:0] display0,
+    output logic io_stall_flag
+);
+
+    // Decodificacao para displays de 7 segmentos
+    function automatic logic [6:0] decoder_7seg (input logic [3:0] val);
+        case (val)
+            4'd0:    return 7'b1000000; // 0
+            4'd1:    return 7'b1111001; // 1
+            4'd2:    return 7'b0100100; // 2
+            4'd3:    return 7'b0110000; // 3
+            4'd4:    return 7'b0011001; // 4
+            4'd5:    return 7'b0010010; // 5
+            4'd6:    return 7'b0000010; // 6
+            4'd7:    return 7'b1111000; // 7
+            4'd8:    return 7'b0000000; // 8
+            4'd9:    return 7'b0010000; // 9
+            4'hE:    return 7'b0000110; // E (Erro)
+            4'hF:    return 7'b0111111; // - (Sinal Negativo)
+            default: return 7'b1111111; // Display apagado
+        endcase
+    endfunction
+
+    // Sinais Internos do Processador
+    logic [31:0] pc_atual, instrucao, pc_proximo, pc_mais_1;
+    logic [31:0] endereco_jump, endereco_branch;
+    logic tomar_branch;
+    logic [4:0]  endereco_escrita_reg;
+    logic [31:0] dado_lido_1, dado_lido_2, dado_para_escrita;
+    logic [31:0] dado_estendido, entrada_B_ula, resultado_ula;
+    logic zero_ula;
+    logic [31:0] dado_lido_memoria;
+    logic [1:0] sinal_regdst;
+    logic sinal_regwrite, sinal_alusrc;
+    logic [1:0] sinal_memtoreg;
+    logic sinal_memread, sinal_memwrite, sinal_branch, sinal_jump;
+    logic sinal_in_signal, sinal_out_signal, sinal_halt;
+    logic [3:0] sinal_aluop, sinal_controle_ula;
+    logic sinal_jumpreg; 
+	 
+    // LOGICA DE RESET, CLOCKS E BOTAO
+    logic reset;
+    assign reset = ~reset_n;
+
+    logic clk_lento_processador;
+    logic pulso_enter;
+    
+	 divisorClock divisor_de_clock_inst (
+        .clk_in(clock), 
+        .clk_out(clk_lento_processador)
+    );
+	 
+	 debouncer debouncer_inst (
+		 .clk(clk_lento_processador), 
+		 .btn_in(~botaoEnter_n), 
+		 .btn_out(pulso_enter)
+		);
+
+    // LOGICA DE HABILITACAO DO PC
+    logic io_stall;
+    logic pc_enable;
+    
+    assign io_stall = sinal_in_signal || sinal_out_signal;
+    assign io_stall_flag = io_stall; // Expoe o sinal para o testbench
+    assign pc_enable = !io_stall || (io_stall && pulso_enter);
+    
+    // LOGICA DE DISPLAYS
+    always_comb begin
+        logic signed [31:0] valor_para_display;
+        logic [31:0] valor_abs;
+        logic [3:0]  digito3, digito2, digito1, digito0;
+
+        valor_para_display = saida_binario;
+
+        if (valor_para_display > 999 || valor_para_display < -999) begin
+            digito3 = 4'hE; digito2 = 4'hE; digito1 = 4'hE; digito0 = 4'hE;
+        end else begin
+            if (valor_para_display < 0) begin
+                digito3 = 4'hF; // Sinal '-'
+                valor_abs = -valor_para_display;
+            end else begin
+                digito3 = 4'hA; // Apagado
+                valor_abs = valor_para_display;
+            end
+            digito2 = (valor_abs / 100) % 10;
+            digito1 = (valor_abs / 10) % 10;
+            digito0 = valor_abs % 10;
+            if (digito3 != 4'hF && digito2 == 0) begin
+                digito2 = 4'hA;
+                if (digito1 == 0) begin
+                    digito1 = 4'hA;
+                end
+            end
+        end
+        display3 = decoder_7seg(digito3);
+        display2 = decoder_7seg(digito2);
+        display1 = decoder_7seg(digito1);
+        display0 = decoder_7seg(digito0);
+    end
+
+    assign pc_mais_1 = pc_atual + 32'd1;
+    assign endereco_branch = pc_mais_1 + dado_estendido; 
+    assign endereco_jump = {6'b0, instrucao[25:0]};
+    assign tomar_branch = sinal_branch & zero_ula;
+    assign led_zero = zero_ula;
+    assign led_negativo = resultado_ula[31];
+    assign saida_binario = (sinal_out_signal) ? dado_lido_1 : 32'b0;
+
+
+    // INSTANCIACAO DOS MODULOS
+    controle controle_inst (.opcode(instrucao[31:26]), .regdst(sinal_regdst), .regwrite(sinal_regwrite), .alusrc(sinal_alusrc), .memtoreg(sinal_memtoreg), .memread(sinal_memread), .memwrite(sinal_memwrite), .branch(sinal_branch), .jump(sinal_jump), .in_signal(sinal_in_signal), .out_signal(sinal_out_signal), .halt(sinal_halt), .aluop(sinal_aluop));
+    ULAcontrol ula_control_inst (.aluop(sinal_aluop), .funct(instrucao[5:0]), .controleULA_out(sinal_controle_ula), .jumpreg(sinal_jumpreg));
+
+    PC pc_inst (.clockPC(clk_lento_processador), .reset(reset), .enable(pc_enable), .halt(sinal_halt), .prox_end(pc_proximo), .atualPC(pc_atual));
+	 
+	 memoriaROM memoria_de_instrucao_inst ( 
+		 .clk(clock), 
+		 .addr(pc_atual[7:0]), 
+		 .q(instrucao)
+	 );
+	 
+	 
+    bancoReg banco_reg_inst (.clock(clk_lento_processador), .reset(reset), .regWrite(sinal_regwrite && pc_enable), .leReg1(instrucao[25:21]), .leReg2(instrucao[20:16]), .escreveReg(endereco_escrita_reg), .escreveDado(dado_para_escrita), .leDado1(dado_lido_1), .leDado2(dado_lido_2));
+    extensor extensor_inst (.entrada(instrucao[15:0]), .saida(dado_estendido));
+    ULA ula_inst (.A(dado_lido_1), .B(entrada_B_ula), .controleULA(sinal_controle_ula), .shamt(instrucao[10:6]), .result(resultado_ula), .zero(zero_ula));
+
+	 memoriaRAM memoria_de_dados_inst (
+		 .read_clock(clock),
+		 .write_clock(clk_lento_processador), 
+		 .we(sinal_memwrite),
+		 .memread(sinal_memread),
+		 .read_addr(resultado_ula[7:0]),
+		 .write_addr(resultado_ula[7:0]),
+		 .data(dado_lido_2),
+		 .q(dado_lido_memoria)
+	);
+	 
+    // lOGICA DO MUXES
+    always_comb begin
+        case (sinal_regdst)
+            2'b00:   endereco_escrita_reg = instrucao[20:16]; // rt (tipo I)
+            2'b01:   endereco_escrita_reg = instrucao[15:11]; // rd (tipo R)
+            2'b10:   endereco_escrita_reg = 5'd31;            // $ra (JAL)
+            default: endereco_escrita_reg = 5'b0;
+        endcase
+    end
+
+    mux2 mux_alusrc_inst (.selecao(sinal_alusrc), .entrada1(dado_lido_2), .entrada2(dado_estendido), .saida(entrada_B_ula));
+
+    always_comb begin
+        case (sinal_memtoreg)
+            2'b00:   dado_para_escrita = resultado_ula;
+            2'b01:   dado_para_escrita = dado_lido_memoria;
+            2'b10:   dado_para_escrita = pc_mais_1;
+            2'b11:   dado_para_escrita = {16'b0, switches};
+            default: dado_para_escrita = 32'b0;
+        endcase
+    end
+
+    // Logica para selecionar o proximo PC
+    logic [31:0] pc_apos_branch, pc_apos_jump;
+    assign pc_apos_branch = tomar_branch ? endereco_branch : pc_mais_1;
+    assign pc_apos_jump = sinal_jump ? endereco_jump : pc_apos_branch;
+    assign pc_proximo = sinal_jumpreg ? dado_lido_1 : pc_apos_jump;
+
+endmodule
