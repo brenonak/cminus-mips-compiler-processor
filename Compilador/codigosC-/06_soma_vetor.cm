@@ -1,0 +1,29 @@
+/* Soma dos elementos de um vetor
+   Testa: vetor global, passagem por referencia, acumulador */
+
+int vet[5];
+
+int soma(int a[], int n)
+{
+    int i; int s;
+    s = 0;
+    i = 0;
+    while (i < n)
+    {
+        s = s + a[i];
+        i = i + 1;
+    }
+    return s;
+}
+
+void main(void)
+{
+    int i;
+    i = 0;
+    while (i < 5)
+    {
+        vet[i] = input();
+        i = i + 1;
+    }
+    output(soma(vet, 5));
+}

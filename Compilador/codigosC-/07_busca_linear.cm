@@ -1,0 +1,31 @@
+/* Busca linear em vetor
+   Testa: return do meio de um while, igualdade,
+   retorno de indice ou -1 se nao encontrado */
+
+int vet[5];
+
+int busca(int a[], int n, int alvo)
+{
+    int i;
+    i = 0;
+    while (i < n)
+    {
+        if (a[i] == alvo)
+            return i;
+        i = i + 1;
+    }
+    return 0 - 1;
+}
+
+void main(void)
+{
+    int i; int alvo;
+    i = 0;
+    while (i < 5)
+    {
+        vet[i] = input();
+        i = i + 1;
+    }
+    alvo = input();
+    output(busca(vet, 5, alvo));
+}

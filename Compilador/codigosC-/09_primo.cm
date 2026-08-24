@@ -1,0 +1,26 @@
+/* Teste de primalidade
+   Testa: operacao de modulo via n - (n/i)*i (mesmo
+   truque do GCD), return antecipado, while com
+   condicao composta simulada */
+
+int ehPrimo(int n)
+{
+    int i; int resto;
+    if (n <= 1) return 0;
+    i = 2;
+    while (i < n)
+    {
+        resto = n - (n / i) * i;
+        if (resto == 0)
+            return 0;
+        i = i + 1;
+    }
+    return 1;
+}
+
+void main(void)
+{
+    int n;
+    n = input();
+    output(ehPrimo(n));
+}

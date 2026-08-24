@@ -1,0 +1,38 @@
+/* Inversao de vetor in-place
+   Testa: escrita em vetor por referencia, dois indices
+   convergentes, troca de elementos com temporario */
+
+int vet[5];
+
+void reverso(int a[], int n)
+{
+    int i; int j; int temp;
+    i = 0;
+    j = n - 1;
+    while (i < j)
+    {
+        temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+        i = i + 1;
+        j = j - 1;
+    }
+}
+
+void main(void)
+{
+    int i;
+    i = 0;
+    while (i < 5)
+    {
+        vet[i] = input();
+        i = i + 1;
+    }
+    reverso(vet, 5);
+    i = 0;
+    while (i < 5)
+    {
+        output(vet[i]);
+        i = i + 1;
+    }
+}

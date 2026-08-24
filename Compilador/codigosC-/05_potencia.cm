@@ -1,0 +1,16 @@
+/* Potenciacao recursiva (base^exp)
+   Testa: recursao com 2 parametros, multiplicacao */
+
+int potencia(int base, int exp)
+{
+    if (exp == 0) return 1;
+    return base * potencia(base, exp - 1);
+}
+
+void main(void)
+{
+    int b; int e;
+    b = input();
+    e = input();
+    output(potencia(b, e));
+}

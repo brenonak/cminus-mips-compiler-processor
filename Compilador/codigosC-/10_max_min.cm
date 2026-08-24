@@ -1,0 +1,46 @@
+/* Maximo e minimo de um vetor
+   Testa: duas funcoes com mesma assinatura chamadas
+   em sequencia, operadores > e <, multiplos output */
+
+int vet[5];
+
+int maximo(int a[], int n)
+{
+    int i; int m;
+    m = a[0];
+    i = 1;
+    while (i < n)
+    {
+        if (a[i] > m)
+            m = a[i];
+        i = i + 1;
+    }
+    return m;
+}
+
+int minimo(int a[], int n)
+{
+    int i; int m;
+    m = a[0];
+    i = 1;
+    while (i < n)
+    {
+        if (a[i] < m)
+            m = a[i];
+        i = i + 1;
+    }
+    return m;
+}
+
+void main(void)
+{
+    int i;
+    i = 0;
+    while (i < 5)
+    {
+        vet[i] = input();
+        i = i + 1;
+    }
+    output(maximo(vet, 5));
+    output(minimo(vet, 5));
+}
