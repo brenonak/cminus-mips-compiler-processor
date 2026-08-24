@@ -2,263 +2,201 @@ digraph AST {
   ordering=out;
 node [shape=box, fontname="Arial"];
 edge [fontname="Arial"];
-node00D11B00 [label="VET: vet[ ]\n(int)"];
-node00D11B00 -> node00D11B40;
-node00D11B40 [label="10\n(int)"];
-node00D11B00 -> node00D11B40;
-node00D11B40 [label="10\n(int)"];
-{ rank=same; node00D11B00 -> node00D1CF48 [style=dashed]; }
-node00D1CF48 [label="ID: minloc\n(int)"];
-node00D1CF48 -> node00D11BE8;
-node00D11BE8 [label="VET: a[ ]\n(int)"];
-{ rank=same; node00D11BE8 -> node00D11C58 [style=dashed]; }
-node00D11C58 [label="ID: low\n(int)"];
-{ rank=same; node00D11C58 -> node00D104B8 [style=dashed]; }
-node00D104B8 [label="ID: high\n(int)"];
-node00D1CF48 -> node00D1D368;
-node00D1D368 [label="BLOCO\n(int)"];
-node00D1D368 -> node00D104E8;
-node00D104E8 [label="ID: i\n(int)"];
-{ rank=same; node00D104E8 -> node00D10518 [style=dashed]; }
-node00D10518 [label="ID: x\n(int)"];
-{ rank=same; node00D10518 -> node00D10548 [style=dashed]; }
-node00D10548 [label="ID: k\n(int)"];
-node00D1D368 -> node00D1C4A8;
-node00D1C4A8 [label=":=\n(int)"];
-node00D1C4A8 -> node00D10578;
-node00D10578 [label="ID: k\n(int)"];
-node00D1C4A8 -> node00D1C478;
-node00D1C478 [label="ID: low\n(int)"];
-{ rank=same; node00D1C4A8 -> node00D1C568 [style=dashed]; }
-node00D1C568 [label=":=\n(int)"];
-node00D1C568 -> node00D1C4D8;
-node00D1C4D8 [label="ID: x\n(int)"];
-node00D1C568 -> node00D1C538;
-node00D1C538 [label="VET: a[ ]\n(int)"];
-node00D1C538 -> node00D1C508;
-node00D1C508 [label="ID: low\n(int)"];
-{ rank=same; node00D1C568 -> node00D1CA88 [style=dashed]; }
-node00D1CA88 [label=":=\n(int)"];
-node00D1CA88 -> node00D1C598;
-node00D1C598 [label="ID: i\n(int)"];
-node00D1CA88 -> node00D1CD88;
-node00D1CD88 [label="+\n(int)"];
-node00D1CD88 -> node00D1CD58;
-node00D1CD58 [label="ID: low\n(int)"];
-node00D1CD88 -> node00D1CCF8;
-node00D1CCF8 [label="1\n(int)"];
-{ rank=same; node00D1CA88 -> node00D1D2D8 [style=dashed]; }
-node00D1D2D8 [label="WHILE\n(int)"];
-node00D1D2D8 -> node00D1CAE8;
-node00D1CAE8 [label="<\n(int)"];
-node00D1CAE8 -> node00D1CAB8;
-node00D1CAB8 [label="ID: i\n(int)"];
-node00D1CAE8 -> node00D1CBA8;
-node00D1CBA8 [label="ID: high\n(int)"];
-node00D1D2D8 -> node00D1D0C8;
-node00D1D0C8 [label="BLOCO\n(int)"];
-node00D1D0C8 -> node00D1CD28;
-node00D1CD28 [label="IF\n(int)"];
-node00D1CD28 -> node00D1CB48;
-node00D1CB48 [label="<\n(int)"];
-node00D1CB48 -> node00D1C9F8;
-node00D1C9F8 [label="VET: a[ ]\n(int)"];
-node00D1C9F8 -> node00D1CB78;
-node00D1CB78 [label="ID: i\n(int)"];
-node00D1CB48 -> node00D1CC98;
-node00D1CC98 [label="ID: x\n(int)"];
-node00D1CD28 -> node00D1CCC8;
-node00D1CCC8 [label="BLOCO\n(int)"];
-node00D1CCC8 -> node00D1CA58;
-node00D1CA58 [label=":=\n(int)"];
-node00D1CA58 -> node00D1CB18;
-node00D1CB18 [label="ID: x\n(int)"];
-node00D1CA58 -> node00D1CBD8;
-node00D1CBD8 [label="VET: a[ ]\n(int)"];
-node00D1CBD8 -> node00D1CA28;
-node00D1CA28 [label="ID: i\n(int)"];
-{ rank=same; node00D1CA58 -> node00D1CC68 [style=dashed]; }
-node00D1CC68 [label=":=\n(int)"];
-node00D1CC68 -> node00D1CC38;
-node00D1CC38 [label="ID: k\n(int)"];
-node00D1CC68 -> node00D1CC08;
-node00D1CC08 [label="ID: i\n(int)"];
-{ rank=same; node00D1CD28 -> node00D1D3C8 [style=dashed]; }
-node00D1D3C8 [label=":=\n(int)"];
-node00D1D3C8 -> node00D1CF18;
-node00D1CF18 [label="ID: i\n(int)"];
-node00D1D3C8 -> node00D1D308;
-node00D1D308 [label="+\n(int)"];
-node00D1D308 -> node00D1D2A8;
-node00D1D2A8 [label="ID: i\n(int)"];
-node00D1D308 -> node00D1D3F8;
-node00D1D3F8 [label="1\n(int)"];
-{ rank=same; node00D1D2D8 -> node00D1CEE8 [style=dashed]; }
-node00D1CEE8 [label="RETURN\n(int)"];
-node00D1CEE8 -> node00D1D0F8;
-node00D1D0F8 [label="ID: k\n(int)"];
-{ rank=same; node00D1CF48 -> node00C00638 [style=dashed]; }
-node00C00638 [label="ID: sort\n(void)"];
-node00C00638 -> node00D1D248;
-node00D1D248 [label="VET: a[ ]\n(int)"];
-{ rank=same; node00D1D248 -> node00D1D008 [style=dashed]; }
-node00D1D008 [label="ID: low\n(int)"];
-{ rank=same; node00D1D008 -> node00D1D278 [style=dashed]; }
-node00D1D278 [label="ID: high\n(int)"];
-node00C00638 -> node00C00458;
-node00C00458 [label="BLOCO\n(int)"];
-node00C00458 -> node00D1D338;
-node00D1D338 [label="ID: i\n(int)"];
-{ rank=same; node00D1D338 -> node00D1D158 [style=dashed]; }
-node00D1D158 [label="ID: k\n(int)"];
-node00C00458 -> node00D1D398;
-node00D1D398 [label=":=\n(int)"];
-node00D1D398 -> node00D1D428;
-node00D1D428 [label="ID: i\n(int)"];
-node00D1D398 -> node00D1D1B8;
-node00D1D1B8 [label="ID: low\n(int)"];
-{ rank=same; node00D1D398 -> node00C00818 [style=dashed]; }
-node00C00818 [label="WHILE\n(int)"];
-node00C00818 -> node00D1D218;
-node00D1D218 [label="<\n(int)"];
-node00D1D218 -> node00D1CF78;
-node00D1CF78 [label="ID: i\n(int)"];
-node00D1D218 -> node00D1CEB8;
-node00D1CEB8 [label="-\n(int)"];
-node00D1CEB8 -> node00D1CE58;
-node00D1CE58 [label="ID: high\n(int)"];
-node00D1CEB8 -> node00D1CE88;
-node00D1CE88 [label="1\n(int)"];
-node00C00818 -> node00C00A88;
-node00C00A88 [label="BLOCO\n(int)"];
-node00C00A88 -> node00D1CFA8;
-node00D1CFA8 [label="ID: t\n(int)"];
-node00C00A88 -> node00D1D188;
-node00D1D188 [label=":=\n(int)"];
-node00D1D188 -> node00D1CFD8;
-node00D1CFD8 [label="ID: k\n(int)"];
-node00D1D188 -> node00D1D1E8;
-node00D1D1E8 [label="CALL: minloc\n(int)"];
-node00D1D1E8 -> node00D1D038;
-node00D1D038 [label="ID: a"];
-{ rank=same; node00D1D038 -> node00D1D098 [style=dashed]; }
-node00D1D098 [label="ID: i\n(int)"];
-{ rank=same; node00D1D098 -> node00D1D128 [style=dashed]; }
-node00D1D128 [label="ID: high\n(int)"];
-{ rank=same; node00D1D188 -> node00D1D578 [style=dashed]; }
-node00D1D578 [label=":=\n(int)"];
-node00D1D578 -> node00D1D068;
-node00D1D068 [label="ID: t\n(int)"];
-node00D1D578 -> node00D1D458;
-node00D1D458 [label="VET: a[ ]\n(int)"];
-node00D1D458 -> node00D1D4E8;
-node00D1D4E8 [label="ID: k\n(int)"];
-{ rank=same; node00D1D578 -> node00D1D5D8 [style=dashed]; }
-node00D1D5D8 [label=":=\n(int)"];
-node00D1D5D8 -> node00D1D5A8;
-node00D1D5A8 [label="VET: a[ ]\n(int)"];
-node00D1D5A8 -> node00D1D518;
-node00D1D518 [label="ID: k\n(int)"];
-node00D1D5D8 -> node00D1D4B8;
-node00D1D4B8 [label="VET: a[ ]\n(int)"];
-node00D1D4B8 -> node00D1D548;
-node00D1D548 [label="ID: i\n(int)"];
-{ rank=same; node00D1D5D8 -> node00C009F8 [style=dashed]; }
-node00C009F8 [label=":=\n(int)"];
-node00C009F8 -> node00C00B18;
-node00C00B18 [label="VET: a[ ]\n(int)"];
-node00C00B18 -> node00D1D488;
-node00D1D488 [label="ID: i\n(int)"];
-node00C009F8 -> node00C00AB8;
-node00C00AB8 [label="ID: t\n(int)"];
-{ rank=same; node00C009F8 -> node00C00A58 [style=dashed]; }
-node00C00A58 [label=":=\n(int)"];
-node00C00A58 -> node00C00A28;
-node00C00A28 [label="ID: i\n(int)"];
-node00C00A58 -> node00C009C8;
-node00C009C8 [label="+\n(int)"];
-node00C009C8 -> node00C00AE8;
-node00C00AE8 [label="ID: i\n(int)"];
-node00C009C8 -> node00C00B48;
-node00C00B48 [label="1\n(int)"];
-{ rank=same; node00C00638 -> node00C03220 [style=dashed]; }
-node00C03220 [label="ID: main\n(void)"];
-node00C03220 -> node00C03310;
-node00C03310 [label="BLOCO\n(int)"];
-node00C03310 -> node00C00758;
-node00C00758 [label="ID: i\n(int)"];
-node00C03310 -> node00C003F8;
-node00C003F8 [label=":=\n(int)"];
-node00C003F8 -> node00C00668;
-node00C00668 [label="ID: i\n(int)"];
-node00C003F8 -> node00C00788;
-node00C00788 [label="0\n(int)"];
-{ rank=same; node00C003F8 -> node00C00998 [style=dashed]; }
-node00C00998 [label="WHILE\n(int)"];
-node00C00998 -> node00C00698;
-node00C00698 [label="<\n(int)"];
-node00C00698 -> node00C00938;
-node00C00938 [label="ID: i\n(int)"];
-node00C00698 -> node00C007E8;
-node00C007E8 [label="10\n(int)"];
-node00C00998 -> node00C00728;
-node00C00728 [label="BLOCO\n(int)"];
-node00C00728 -> node00C00878;
-node00C00878 [label=":=\n(int)"];
-node00C00878 -> node00C00848;
-node00C00848 [label="VET: vet[ ]\n(int)"];
-node00C00848 -> node00C004B8;
-node00C004B8 [label="ID: i\n(int)"];
-node00C00878 -> node00C00488;
-node00C00488 [label="CALL: input\n(int)"];
-{ rank=same; node00C00878 -> node00C006F8 [style=dashed]; }
-node00C006F8 [label=":=\n(int)"];
-node00C006F8 -> node00C004E8;
-node00C004E8 [label="ID: i\n(int)"];
-node00C006F8 -> node00C005D8;
-node00C005D8 [label="+\n(int)"];
-node00C005D8 -> node00C005A8;
-node00C005A8 [label="ID: i\n(int)"];
-node00C005D8 -> node00C006C8;
-node00C006C8 [label="1\n(int)"];
-{ rank=same; node00C00998 -> node00C00518 [style=dashed]; }
-node00C00518 [label="CALL: sort\n(void)"];
-node00C00518 -> node00C008A8;
-node00C008A8 [label="ID: vet"];
-{ rank=same; node00C008A8 -> node00C007B8 [style=dashed]; }
-node00C007B8 [label="0\n(int)"];
-{ rank=same; node00C007B8 -> node00C008D8 [style=dashed]; }
-node00C008D8 [label="10\n(int)"];
-{ rank=same; node00C00518 -> node00C00578 [style=dashed]; }
-node00C00578 [label=":=\n(int)"];
-node00C00578 -> node00C00908;
-node00C00908 [label="ID: i\n(int)"];
-node00C00578 -> node00C00548;
-node00C00548 [label="0\n(int)"];
-{ rank=same; node00C00578 -> node00C03400 [style=dashed]; }
-node00C03400 [label="WHILE\n(int)"];
-node00C03400 -> node00C00428;
-node00C00428 [label="<\n(int)"];
-node00C00428 -> node00C00968;
-node00C00968 [label="ID: i\n(int)"];
-node00C00428 -> node00C003C8;
-node00C003C8 [label="10\n(int)"];
-node00C03400 -> node00C03580;
-node00C03580 [label="BLOCO\n(int)"];
-node00C03580 -> node00C03550;
-node00C03550 [label="CALL: output\n(void)"];
-node00C03550 -> node00C033D0;
-node00C033D0 [label="VET: vet[ ]\n(int)"];
-node00C033D0 -> node00C00608;
-node00C00608 [label="ID: i\n(int)"];
-{ rank=same; node00C03550 -> node00C033A0 [style=dashed]; }
-node00C033A0 [label=":=\n(int)"];
-node00C033A0 -> node00C031C0;
-node00C031C0 [label="ID: i\n(int)"];
-node00C033A0 -> node00C031F0;
-node00C031F0 [label="+\n(int)"];
-node00C031F0 -> node00C03190;
-node00C03190 [label="ID: i\n(int)"];
-node00C031F0 -> node00C03490;
-node00C03490 [label="1\n(int)"];
+node007915E8 [label="VET: vet[ ]\n(int)"];
+node007915E8 -> node00791628;
+node00791628 [label="5\n(int)"];
+node007915E8 -> node00791628;
+node00791628 [label="5\n(int)"];
+{ rank=same; node007915E8 -> node0079C0B8 [style=dashed]; }
+node0079C0B8 [label="ID: maximo\n(int)"];
+node0079C0B8 -> node00790510;
+node00790510 [label="VET: a[ ]\n(int)"];
+{ rank=same; node00790510 -> node00790580 [style=dashed]; }
+node00790580 [label="ID: n\n(int)"];
+node0079C0B8 -> node0079C058;
+node0079C058 [label="BLOCO\n(int)"];
+node0079C058 -> node0079BA78;
+node0079BA78 [label="ID: i\n(int)"];
+{ rank=same; node0079BA78 -> node0079BDF8 [style=dashed]; }
+node0079BDF8 [label="ID: m\n(int)"];
+node0079C058 -> node0079BEB8;
+node0079BEB8 [label=":=\n(int)"];
+node0079BEB8 -> node0079BE28;
+node0079BE28 [label="ID: m\n(int)"];
+node0079BEB8 -> node0079BE88;
+node0079BE88 [label="VET: a[ ]\n(int)"];
+node0079BE88 -> node0079BE58;
+node0079BE58 [label="0\n(int)"];
+{ rank=same; node0079BEB8 -> node0079BF48 [style=dashed]; }
+node0079BF48 [label=":=\n(int)"];
+node0079BF48 -> node0079BEE8;
+node0079BEE8 [label="ID: i\n(int)"];
+node0079BF48 -> node0079BF18;
+node0079BF18 [label="1\n(int)"];
+{ rank=same; node0079BF48 -> node0079C1D8 [style=dashed]; }
+node0079C1D8 [label="WHILE\n(int)"];
+node0079C1D8 -> node0079BFD8;
+node0079BFD8 [label="<\n(int)"];
+node0079BFD8 -> node0079BF78;
+node0079BF78 [label="ID: i\n(int)"];
+node0079BFD8 -> node0079BFA8;
+node0079BFA8 [label="ID: n\n(int)"];
+node0079C1D8 -> node0079C238;
+node0079C238 [label="BLOCO\n(int)"];
+node0079C238 -> node0079C2F8;
+node0079C2F8 [label="IF\n(int)"];
+node0079C2F8 -> node0079C3B8;
+node0079C3B8 [label=">\n(int)"];
+node0079C3B8 -> node0079C0E8;
+node0079C0E8 [label="VET: a[ ]\n(int)"];
+node0079C0E8 -> node0079C268;
+node0079C268 [label="ID: i\n(int)"];
+node0079C3B8 -> node0079C178;
+node0079C178 [label="ID: m\n(int)"];
+node0079C2F8 -> node0079C148;
+node0079C148 [label=":=\n(int)"];
+node0079C148 -> node0079C208;
+node0079C208 [label="ID: m\n(int)"];
+node0079C148 -> node0079C1A8;
+node0079C1A8 [label="VET: a[ ]\n(int)"];
+node0079C1A8 -> node0079C298;
+node0079C298 [label="ID: i\n(int)"];
+{ rank=same; node0079C2F8 -> node0079C118 [style=dashed]; }
+node0079C118 [label=":=\n(int)"];
+node0079C118 -> node0079C2C8;
+node0079C2C8 [label="ID: i\n(int)"];
+node0079C118 -> node0079C328;
+node0079C328 [label="+\n(int)"];
+node0079C328 -> node0079C388;
+node0079C388 [label="ID: i\n(int)"];
+node0079C328 -> node0079C088;
+node0079C088 [label="1\n(int)"];
+{ rank=same; node0079C1D8 -> node0079C3E8 [style=dashed]; }
+node0079C3E8 [label="RETURN\n(int)"];
+node0079C3E8 -> node0079C358;
+node0079C358 [label="ID: m\n(int)"];
+{ rank=same; node0079C0B8 -> node0079D368 [style=dashed]; }
+node0079D368 [label="ID: minimo\n(int)"];
+node0079D368 -> node0079CBE8;
+node0079CBE8 [label="VET: a[ ]\n(int)"];
+{ rank=same; node0079CBE8 -> node0079CFA8 [style=dashed]; }
+node0079CFA8 [label="ID: n\n(int)"];
+node0079D368 -> node0079D2A8;
+node0079D2A8 [label="BLOCO\n(int)"];
+node0079D2A8 -> node0079CF18;
+node0079CF18 [label="ID: i\n(int)"];
+{ rank=same; node0079CF18 -> node0079CD98 [style=dashed]; }
+node0079CD98 [label="ID: m\n(int)"];
+node0079D2A8 -> node0079CF78;
+node0079CF78 [label=":=\n(int)"];
+node0079CF78 -> node0079CC18;
+node0079CC18 [label="ID: m\n(int)"];
+node0079CF78 -> node0079CFD8;
+node0079CFD8 [label="VET: a[ ]\n(int)"];
+node0079CFD8 -> node0079CF48;
+node0079CF48 [label="0\n(int)"];
+{ rank=same; node0079CF78 -> node0079CE58 [style=dashed]; }
+node0079CE58 [label=":=\n(int)"];
+node0079CE58 -> node0079CDF8;
+node0079CDF8 [label="ID: i\n(int)"];
+node0079CE58 -> node0079D008;
+node0079D008 [label="1\n(int)"];
+{ rank=same; node0079CE58 -> node0079CE28 [style=dashed]; }
+node0079CE28 [label="WHILE\n(int)"];
+node0079CE28 -> node0079D188;
+node0079D188 [label="<\n(int)"];
+node0079D188 -> node0079D038;
+node0079D038 [label="ID: i\n(int)"];
+node0079D188 -> node0079CC48;
+node0079CC48 [label="ID: n\n(int)"];
+node0079CE28 -> node0079CEB8;
+node0079CEB8 [label="BLOCO\n(int)"];
+node0079CEB8 -> node0079D158;
+node0079D158 [label="IF\n(int)"];
+node0079D158 -> node0079CD08;
+node0079CD08 [label="<\n(int)"];
+node0079CD08 -> node0079CC78;
+node0079CC78 [label="VET: a[ ]\n(int)"];
+node0079CC78 -> node0079D068;
+node0079D068 [label="ID: i\n(int)"];
+node0079CD08 -> node0079D098;
+node0079D098 [label="ID: m\n(int)"];
+node0079D158 -> node0079D128;
+node0079D128 [label=":=\n(int)"];
+node0079D128 -> node0079CCA8;
+node0079CCA8 [label="ID: m\n(int)"];
+node0079D128 -> node0079D0F8;
+node0079D0F8 [label="VET: a[ ]\n(int)"];
+node0079D0F8 -> node0079D0C8;
+node0079D0C8 [label="ID: i\n(int)"];
+{ rank=same; node0079D158 -> node0079D1B8 [style=dashed]; }
+node0079D1B8 [label=":=\n(int)"];
+node0079D1B8 -> node0079CD68;
+node0079CD68 [label="ID: i\n(int)"];
+node0079D1B8 -> node0079CDC8;
+node0079CDC8 [label="+\n(int)"];
+node0079CDC8 -> node0079CCD8;
+node0079CCD8 [label="ID: i\n(int)"];
+node0079CDC8 -> node0079CD38;
+node0079CD38 [label="1\n(int)"];
+{ rank=same; node0079CE28 -> node0079CEE8 [style=dashed]; }
+node0079CEE8 [label="RETURN\n(int)"];
+node0079CEE8 -> node0079CE88;
+node0079CE88 [label="ID: m\n(int)"];
+{ rank=same; node0079D368 -> node00BF05E8 [style=dashed]; }
+node00BF05E8 [label="ID: main\n(void)"];
+node00BF05E8 -> node00BF0408;
+node00BF0408 [label="BLOCO\n(int)"];
+node00BF0408 -> node0079D278;
+node0079D278 [label="ID: i\n(int)"];
+node00BF0408 -> node0079D218;
+node0079D218 [label=":=\n(int)"];
+node0079D218 -> node0079D1E8;
+node0079D1E8 [label="ID: i\n(int)"];
+node0079D218 -> node0079D308;
+node0079D308 [label="0\n(int)"];
+{ rank=same; node0079D218 -> node00BF0288 [style=dashed]; }
+node00BF0288 [label="WHILE\n(int)"];
+node00BF0288 -> node0079D338;
+node0079D338 [label="<\n(int)"];
+node0079D338 -> node0079D248;
+node0079D248 [label="ID: i\n(int)"];
+node0079D338 -> node0079D2D8;
+node0079D2D8 [label="5\n(int)"];
+node00BF0288 -> node00BF05B8;
+node00BF05B8 [label="BLOCO\n(int)"];
+node00BF05B8 -> node00BF07C8;
+node00BF07C8 [label=":=\n(int)"];
+node00BF07C8 -> node00BF0768;
+node00BF0768 [label="VET: vet[ ]\n(int)"];
+node00BF0768 -> node00BF06D8;
+node00BF06D8 [label="ID: i\n(int)"];
+node00BF07C8 -> node00BF0798;
+node00BF0798 [label="CALL: input\n(int)"];
+{ rank=same; node00BF07C8 -> node00BF06A8 [style=dashed]; }
+node00BF06A8 [label=":=\n(int)"];
+node00BF06A8 -> node00BF0708;
+node00BF0708 [label="ID: i\n(int)"];
+node00BF06A8 -> node00BF0678;
+node00BF0678 [label="+\n(int)"];
+node00BF0678 -> node00BF07F8;
+node00BF07F8 [label="ID: i\n(int)"];
+node00BF0678 -> node00BF0738;
+node00BF0738 [label="1\n(int)"];
+{ rank=same; node00BF0288 -> node00BF01C8 [style=dashed]; }
+node00BF01C8 [label="CALL: output\n(void)"];
+node00BF01C8 -> node00BF0528;
+node00BF0528 [label="CALL: maximo\n(int)"];
+node00BF0528 -> node00BF0318;
+node00BF0318 [label="ID: vet"];
+{ rank=same; node00BF0318 -> node00BF04F8 [style=dashed]; }
+node00BF04F8 [label="5\n(int)"];
+{ rank=same; node00BF01C8 -> node00BF0558 [style=dashed]; }
+node00BF0558 [label="CALL: output\n(void)"];
+node00BF0558 -> node00BF0438;
+node00BF0438 [label="CALL: minimo\n(int)"];
+node00BF0438 -> node00BF0258;
+node00BF0258 [label="ID: vet"];
+{ rank=same; node00BF0258 -> node00BF01F8 [style=dashed]; }
+node00BF01F8 [label="5\n(int)"];
 }
